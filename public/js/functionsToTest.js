@@ -30,14 +30,23 @@ returnAnObject('hello', 'bienvenue', 2, ['ami', 2, { firstName: 'Aurore', lastNa
  */
 const multiplyAllByTwo = (arrayOfNumbers) => {
   let response;
-  if (arrayOfNumbers.constructor.prototype) {
-    response = arrayOfNumbers.map(val => val * 2);
-    console.log('arrayTimesTwo: ', response);
-    console.log('response: ', response);
+  const createArray = [];
+  console.log(arrayOfNumbers.constructor.prototype);
+  if (arrayOfNumbers.constructor.prototype === createArray.constructor.prototype) {
+    response = arrayOfNumbers.map((val) => {
+      if (typeof val !== 'number') {
+        return val;
+      }
+      return val * 2;
+    });
   } else {
     response = 'The argument is not an Array of numbers';
   };
+
+  console.log(response);
   return response;
 };
 
+console.log(multiplyAllByTwo(4));
+console.log(multiplyAllByTwo(['uh']));
 console.log(multiplyAllByTwo([1, 2, 3]));
