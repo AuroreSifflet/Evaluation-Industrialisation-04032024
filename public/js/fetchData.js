@@ -2,6 +2,7 @@ window.addEventListener('DOMContentLoaded', () => {
   const pokeP = document.getElementById('pokeInfo');
   const pokeDiv = document.getElementById('pokemon-info');
   const pokeAbilityBtn = document.getElementById('ability');
+  const pokeAbility = document.getElementById('pokeAbility');
 
   /**
    * Fonction asynchrone fetchPokemon()
@@ -115,7 +116,7 @@ window.addEventListener('DOMContentLoaded', () => {
    */
   const pokemonAbility = () => {
     pokeAbilityBtn.addEventListener('click', fetchPokemonAbilities);
-    pokeDiv.appendChild(pokeAbilityBtn);
+    pokeDiv.appendChild(pokeAbility);
   };
   /**
    * Fonction IIFE startAll() qui exécute immédiatement au chargement du fichier fetchData.js
