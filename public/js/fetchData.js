@@ -16,7 +16,7 @@ window.addEventListener('DOMContentLoaded',()=>{
   const fetchPokemon=async ()=>{
     const pokedexNum=Math.floor(Math.random() * 897)
     let foundPokemon=''
-    let jsonPokemon=''
+    let jsonPokemon={}
     const pokeInfo={}
 
     try{
@@ -32,7 +32,7 @@ window.addEventListener('DOMContentLoaded',()=>{
       catch(error){console.error(error.message)}
 
     }
-    else{jsonPokemon='No Pokémon found...'}
+    else{pokeP.innerText = 'No Pokémon found...'}
     
     if(pokeP.innerText !== ''){pokeP.innerText=''}
     pokeP.innerText=`Your Pokémon is ${pokeInfo.name}.`
@@ -45,7 +45,7 @@ window.addEventListener('DOMContentLoaded',()=>{
    * et assigne sa valeur à foundAbilities
    * si un pokemon a été trouvé, foundAbilities existe, 
    * récupération et mise en forme de son nom jsonAbilities.name
-   * sa valeur est assignée à abilityToDisplay qui sera affichée dan sle paragraphe pokeAbility
+   * sa valeur est assignée à abilityToDisplay qui sera affichée dans le paragraphe pokeAbility
    * 
    * @returns undefined, il n'y a pas de valeur de retour
    */
@@ -53,7 +53,7 @@ window.addEventListener('DOMContentLoaded',()=>{
     const pokedexNum=Math.floor(Math.random() * 266)
     let foundAbilities=''
     const pokeAbility=document.getElementById('pokeAbility')
-    let jsonAbilities={}
+    let jsonAbilities 
     let abilityToDisplay=''
   
     try {
@@ -72,7 +72,7 @@ window.addEventListener('DOMContentLoaded',()=>{
       catch(error){console.error(error.message)}
 
     }
-    else{jsonAbilities='No ability found...'}
+    else{ pokeAbility.innerText = 'No ability found...' }
 
     if(pokeAbility.innerText !== ''){pokeAbility.innerText=''}
 
@@ -86,7 +86,7 @@ window.addEventListener('DOMContentLoaded',()=>{
    * le résultat de l'execution s'affiche sur la page index.html dans la div pokemon-info
    * @returns undefined, il n'y a pas de valeur de retour
    */
-  const invoquePokemon=()=>{
+  const invoquePokemon = ()=>{
     const pokeBtn=document.getElementById('pokemon')
     pokeBtn.addEventListener('click', fetchPokemon)
     pokeDiv.appendChild(pokeP)
