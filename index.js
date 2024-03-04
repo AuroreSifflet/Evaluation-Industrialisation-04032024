@@ -25,7 +25,7 @@ app.get('/', (req, res) => {
 });
 
 app.post('/comment', (req, res) => {
-  const comment = req.body.message;
+  const comment = req.body.message.replace('<script>', ' ');
   res.send(comment);
 });
 
